@@ -47,14 +47,11 @@ npm run lint    # type check
 2. In the project, **Storage → Create Database → Neon** (free plan). This sets `DATABASE_URL`.
 3. In **Settings → Environment Variables** add `BETTER_AUTH_SECRET` (any long random text, e.g. from
    `openssl rand -base64 32`) and `BETTER_AUTH_URL` (the site address, e.g. `https://gestionale-flussi.vercel.app`).
-4. Create the tables and the first login, from your computer, with the Neon connection string:
-   ```bash
-   DATABASE_URL="postgres://..." npm run db:migrate
-   DATABASE_URL="postgres://..." ADMIN_EMAIL=you@example.com ADMIN_PASSWORD=... npm run db:seed
-   ```
-5. Redeploy. After each change to `src/db/schema.ts`, run `npm run db:generate` and then `db:migrate` again.
+4. Deploy. Every build first applies the database migrations (`npm run build` runs `scripts/migrate.ts`).
+5. Open the site: on a new database it shows a **Primo avvio** page where you create the first structure
+   and your administrator login. After that the page is gone and the normal login appears.
 
-The seed creates Rifugio Antelao (code P0250390001, Pieve di Cadore, 24 beds) and an administrator login.
+For local development, `npm run db:seed` does the same as the first-start page: Rifugio Antelao (code P0250390001, Pieve di Cadore, 24 beds) and an administrator login.
 The administrator can add other rifugi under **Impostazioni → Amministrazione**; each owner then adds their
 own staff logins.
 
