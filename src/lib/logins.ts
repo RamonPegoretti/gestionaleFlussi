@@ -43,3 +43,10 @@ export async function createLogin(input: {
   });
   return { ok: true, id };
 }
+
+// True until the very first login has been created (a fresh database).
+export async function hasNoLogins(): Promise<boolean> {
+  const db = await getDb();
+  const rows = await db.select({ id: schema.user.id }).from(schema.user).limit(1);
+  return rows.length === 0;
+}

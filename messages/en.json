@@ -162,5 +162,11 @@
     "ownerEmail": "Owner's email",
     "ownerPassword": "Owner's password",
     "create": "Create structure"
+  },
+  "setup": {
+    "title": "First start",
+    "intro": "The database is new: create the first structure and your administrator login. This page disappears afterwards.",
+    "admin": "Your login (administrator)",
+    "submit": "Create and go to login"
   }
 }

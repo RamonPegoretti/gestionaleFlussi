@@ -162,5 +162,11 @@
     "ownerEmail": "Email del titolare",
     "ownerPassword": "Password del titolare",
     "create": "Crea struttura"
+  },
+  "setup": {
+    "title": "Primo avvio",
+    "intro": "Il database è nuovo: crea la prima struttura e il tuo accesso da amministratore. Questa pagina non sarà più disponibile dopo.",
+    "admin": "Il tuo accesso (amministratore)",
+    "submit": "Crea e vai al login"
   }
 }

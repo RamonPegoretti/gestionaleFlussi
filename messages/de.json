@@ -162,5 +162,11 @@
     "ownerEmail": "E-Mail des Inhabers",
     "ownerPassword": "Passwort des Inhabers",
     "create": "Unterkunft anlegen"
+  },
+  "setup": {
+    "title": "Erster Start",
+    "intro": "Die Datenbank ist neu: lege die erste Unterkunft und deinen Administrator-Zugang an. Danach ist diese Seite nicht mehr verfügbar.",
+    "admin": "Dein Zugang (Administrator)",
+    "submit": "Anlegen und zur Anmeldung"
   }
 }
