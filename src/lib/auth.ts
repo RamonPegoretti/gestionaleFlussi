@@ -9,8 +9,16 @@ import type { Role } from "./logins";
 
 export type { Role };
 
+// Vercel serves each deployment under several addresses (production, branch,
+// per-deployment). Logins must work from any of them, not only BETTER_AUTH_URL.
+const vercelOrigins = [process.env.VERCEL_PROJECT_PRODUCTION_URL, process.env.VERCEL_BRANCH_URL, process.env.VERCEL_URL]
+  .filter((h): h is string => Boolean(h))
+  .map((h) => `https://${h}`);
+
 function createAuth(db: DB) {
   return betterAuth({
+    baseURL: process.env.BETTER_AUTH_URL ?? vercelOrigins[0],
+    trustedOrigins: vercelOrigins,
     database: drizzleAdapter(db, {
       provider: "pg",
       schema: { user: schema.user, session: schema.session, account: schema.account, verification: schema.verification },
